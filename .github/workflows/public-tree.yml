@@ -1,0 +1,30 @@
+name: public-tree
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-tree-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  public-tree:
+    name: public file boundary (doc-only; no code or tests yet)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check the public tree
+        run: python3 tools/check_public_tree.py
+      - name: Negative controls
+        run: python3 tools/check_public_tree.py --self-test
+      - name: Summary
+        run: echo "This repository has no code yet; this workflow checks only the public file boundary, content shape and format." >> "$GITHUB_STEP_SUMMARY"

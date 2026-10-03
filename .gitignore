@@ -1,0 +1,11 @@
+﻿# Private local material must remain outside the public source tree.
+/private/
+/artifacts/
+/scratch/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.venv/
+__pycache__/

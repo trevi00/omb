@@ -118,7 +118,7 @@ def read_allowlist(root):
         text = raw.decode("utf-8")
     except (OSError, UnicodeDecodeError):
         raise EnvError("allowlist unreadable")
-    if text.startswith("﻿"):
+    if text.startswith("\ufeff"):
         text = text[1:]
     entries, findings, prev = set(), [], None
     for no, line in enumerate(text.split("\n"), 1):

@@ -22,7 +22,7 @@ Private operational evidence stays outside this repository. Public examples use 
 ## Delivery stages
 
 1. Establish the clean repository (this delivery).
-2. Review and export reusable code, tests, and sanitized documentation; select a compatible license before releasing code.
+2. Review and export reusable code, tests, and sanitized documentation; original project material is MIT-licensed (see LICENSE); third-party code keeps its own license and notices, and compatibility is checked before release.
 3. Complete Buzz integration and verify the user journey with a Linux server and supported client.
 4. Prepare a reproducible demo, installation guide, security guidance, and release evidence.
 5. Finalize Oh My Buzz branding and launch materials after the product works. Promotional publication is a later delivery; do not claim unmeasured performance or costs.

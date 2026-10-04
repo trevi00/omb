@@ -1,6 +1,7 @@
 # Every published file is listed here after a file-level review.
 .github/workflows/public-tree.yml
 .gitignore
+LICENSE
 README.md
 RELEASE-PLAN.md
 public-files.txt

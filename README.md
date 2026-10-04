@@ -17,6 +17,6 @@ The intended launch name is **Oh My Buzz**, subject to branding and upstream not
 
 This repository starts with a new history. Code imports require a file-level public-distribution review, dependency and license checks, and verification against the imported revision. Private project analyses, credentials, raw execution logs, account details, and customer-specific configuration are excluded.
 
-The distribution license will be selected before code is released. Public visibility alone is not an open-source license.
+Original OMB project material is released under the [MIT License](LICENSE). Any third-party code imported later keeps its own license and notices; it is not relicensed by this project.
 
 See [RELEASE-PLAN.md](RELEASE-PLAN.md).

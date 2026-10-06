@@ -1,0 +1,9 @@
+NOTICE
+
+Parts of this repository are adapted from a personal project owned by the repository owner: the context-skills
+scoring, guidance and history modules, the research threshold proposal and replay modules with their tests, and the
+pipeline stage definitions under src/codex_harness/resources/pipeline/. That material was not previously published
+under a license. It is included here under the MIT License of this repository: Copyright (c) 2026 the repository owner.
+
+THIRD_PARTY_NOTICES lists the files and REUSE.toml records the license of each. Material whose ownership could not be
+established is not included.

@@ -1,0 +1,44 @@
+{
+  "revision": "7470ed7e3816",
+  "files": [
+    {
+      "destination": "overlays/dart.overlay.yaml",
+      "sha256": "f6f40fa79dca659178403a56650331c25c7618132b3e15dd2cb500d4eff38a3f"
+    },
+    {
+      "destination": "overlays/flutter.overlay.yaml",
+      "sha256": "fbe4f992b9f8814f0bedaa56c5d5c6dc2a3b965c359610905325e1f7f9c39efc"
+    },
+    {
+      "destination": "overlays/java.overlay.yaml",
+      "sha256": "2656f9e868bd60d97b535eca261821c65be37e329bee34b7f78e8d465be18906"
+    },
+    {
+      "destination": "overlays/node.overlay.yaml",
+      "sha256": "dcc962015ce57098ecf1b5acf9bfa9e75002e68ff8da274358970f2b4a55c573"
+    },
+    {
+      "destination": "overlays/rust.overlay.yaml",
+      "sha256": "b9cfaf7084abbb031bd654f336049fd8a8d1760db1418c2b8cd6f337c2fdec25"
+    },
+    {
+      "destination": "stages-flutter.yaml",
+      "sha256": "f4ceadcaab21e817dfb7f1ac49645036b294344932109be9294802a916642330"
+    },
+    {
+      "destination": "stages-rust.yaml",
+      "sha256": "93e385a00870e50c4992548caf7e171d37a7052500d3dc18028e4147a0ff4066"
+    },
+    {
+      "destination": "stages.core.yaml",
+      "sha256": "198e395bb873826cf4e85a7cf3ece636da162be8043a508887dd61701290ee0e"
+    },
+    {
+      "destination": "stages.yaml",
+      "sha256": "f6ac2f55e277522b788873e1b530e378ba6c787b3dda6e853f24a0f041e43070"
+    }
+  ],
+  "origin": "Pipeline stage definitions adapted from a personal project owned by the repository owner.",
+  "license": "MIT; Copyright (c) 2026 the repository owner. These assets are adapted from a personal project owned by the repository owner (see NOTICE).",
+  "scope": "Pipeline YAML assets; commands are inert data, not executed."
+}

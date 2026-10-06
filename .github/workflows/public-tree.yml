@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   public-tree:
-    name: public file boundary (doc-only; no code or tests yet)
+    name: public file boundary (allowlist, content shape, format)
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
@@ -27,4 +27,4 @@ jobs:
       - name: Negative controls
         run: python3 tools/check_public_tree.py --self-test
       - name: Summary
-        run: echo "This repository has no code yet; this workflow checks only the public file boundary, content shape and format." >> "$GITHUB_STEP_SUMMARY"
+        run: echo "This workflow checks only the public file boundary, content shape and format; lint and tests run in the ci workflow." >> "$GITHUB_STEP_SUMMARY"

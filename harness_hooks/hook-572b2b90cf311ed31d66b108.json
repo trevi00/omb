@@ -1,0 +1,148 @@
+{
+  "spec": {
+    "kind": "native_hook",
+    "event": "SessionStart",
+    "matcher": "^(startup|resume|clear|compact)$",
+    "script_path": "harness_hooks/codex_output_schema_guard.py",
+    "script_sha256": "12ce6f8c1dc51baf58fb0249579e411fb7412bdd228e7d57a5595f506438be25"
+  },
+  "cases": {
+    "reproduction": [
+      {
+        "input": {
+          "hook_event_name": "SessionStart",
+          "session_id": "fixture-session",
+          "cwd": "/fixture",
+          "source": "startup"
+        },
+        "output": {
+          "hookSpecificOutput": {
+            "hookEventName": "SessionStart",
+            "additionalContext": "INV-RECURRENCE-001: research output schemas must retain integer type and const=1 on version fields, including nested definitions. The harness adapter preflight rejects untyped constants before CLI or app-server submission. Preserve the schema hash, offending path, revision and provider error when diagnosing a failure. Confirm cause from schema bytes; other invalid_json_schema errors are separate diagnoses, and retry/redelivery alone is not independent recurrence. This SessionStart hook cannot inspect or repair outputSchema. Schema errors are failed executions, not accepted audits or reviews. INV-RELEASE-001 requires independent reviews and actual canaries."
+          }
+        },
+        "exit_code": 0
+      }
+    ],
+    "normal_case": [
+      {
+        "input": {
+          "hook_event_name": "SessionStart",
+          "session_id": "fixture-session",
+          "cwd": "/fixture",
+          "source": "resume"
+        },
+        "output": {
+          "hookSpecificOutput": {
+            "hookEventName": "SessionStart",
+            "additionalContext": "INV-RECURRENCE-001: research output schemas must retain integer type and const=1 on version fields, including nested definitions. The harness adapter preflight rejects untyped constants before CLI or app-server submission. Preserve the schema hash, offending path, revision and provider error when diagnosing a failure. Confirm cause from schema bytes; other invalid_json_schema errors are separate diagnoses, and retry/redelivery alone is not independent recurrence. This SessionStart hook cannot inspect or repair outputSchema. Schema errors are failed executions, not accepted audits or reviews. INV-RELEASE-001 requires independent reviews and actual canaries."
+          }
+        },
+        "exit_code": 0
+      },
+      {
+        "input": {
+          "hook_event_name": "SessionStart",
+          "session_id": "fixture-session",
+          "cwd": "/fixture",
+          "source": "clear"
+        },
+        "output": {
+          "hookSpecificOutput": {
+            "hookEventName": "SessionStart",
+            "additionalContext": "INV-RECURRENCE-001: research output schemas must retain integer type and const=1 on version fields, including nested definitions. The harness adapter preflight rejects untyped constants before CLI or app-server submission. Preserve the schema hash, offending path, revision and provider error when diagnosing a failure. Confirm cause from schema bytes; other invalid_json_schema errors are separate diagnoses, and retry/redelivery alone is not independent recurrence. This SessionStart hook cannot inspect or repair outputSchema. Schema errors are failed executions, not accepted audits or reviews. INV-RELEASE-001 requires independent reviews and actual canaries."
+          }
+        },
+        "exit_code": 0
+      },
+      {
+        "input": {
+          "hook_event_name": "SessionStart",
+          "session_id": "fixture-session",
+          "cwd": "/fixture",
+          "source": "compact"
+        },
+        "output": {
+          "hookSpecificOutput": {
+            "hookEventName": "SessionStart",
+            "additionalContext": "INV-RECURRENCE-001: research output schemas must retain integer type and const=1 on version fields, including nested definitions. The harness adapter preflight rejects untyped constants before CLI or app-server submission. Preserve the schema hash, offending path, revision and provider error when diagnosing a failure. Confirm cause from schema bytes; other invalid_json_schema errors are separate diagnoses, and retry/redelivery alone is not independent recurrence. This SessionStart hook cannot inspect or repair outputSchema. Schema errors are failed executions, not accepted audits or reviews. INV-RELEASE-001 requires independent reviews and actual canaries."
+          }
+        },
+        "exit_code": 0
+      },
+      {
+        "input": null,
+        "output": null,
+        "exit_code": 0
+      },
+      {
+        "input": [],
+        "output": null,
+        "exit_code": 0
+      },
+      {
+        "input": {},
+        "output": null,
+        "exit_code": 0
+      },
+      {
+        "input": {
+          "hook_event_name": "SessionStart",
+          "session_id": "fixture-session",
+          "cwd": "/fixture",
+          "source": "unknown"
+        },
+        "output": null,
+        "exit_code": 0
+      },
+      {
+        "input": {
+          "hook_event_name": "PreToolUse",
+          "prompt": "invalid_json_schema properties.version missing type"
+        },
+        "output": null,
+        "exit_code": 0
+      },
+      {
+        "input": {
+          "hook_event_name": "SessionStart",
+          "session_id": "",
+          "cwd": "/fixture",
+          "source": "startup"
+        },
+        "output": null,
+        "exit_code": 0
+      },
+      {
+        "input": {
+          "hook_event_name": "SessionStart",
+          "session_id": "fixture-session",
+          "cwd": null,
+          "source": "startup"
+        },
+        "output": null,
+        "exit_code": 0
+      },
+      {
+        "input": {
+          "hook_event_name": "SessionStart",
+          "session_id": "fixture-session",
+          "cwd": "/fixture",
+          "source": []
+        },
+        "output": null,
+        "exit_code": 0
+      },
+      {
+        "input": {
+          "hook_event_name": "Stop",
+          "session_id": "fixture-session",
+          "cwd": "/fixture",
+          "source": "startup"
+        },
+        "output": null,
+        "exit_code": 0
+      }
+    ]
+  }
+}

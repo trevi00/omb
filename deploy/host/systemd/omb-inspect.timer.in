@@ -1,0 +1,13 @@
+# Periodic read-only lifecycle inspection on host; it needs no Windows observer.
+[Unit]
+Description=Zeus host lifecycle inspection every 5 minutes
+Documentation=file://@ZEUS_ROOT@/deploy/host/README.md
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+AccuracySec=30s
+Persistent=false
+
+[Install]
+WantedBy=timers.target

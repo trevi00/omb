@@ -1,0 +1,20 @@
+{
+  "schema": "urn:zeus:portfolio-definitions:1",
+  "projects": [
+    {"id": "local-absorption", "title": "Absorb local assets", "outcome": "Integrate original experience into owned assets that carry a source, a verification and an owner.", "source_ref": "docs/examples/portfolio/local-absorption.md", "criteria": [
+      {"id": "coverage", "text": "Record a semantic analysis of every source path, with the reason for any deferral."},
+      {"id": "adoption", "text": "Merge the selected assets into the existing single source of truth and verify them independently."},
+      {"id": "operation", "text": "Confirm adoption and improvement evidence from real team runs."}
+    ]},
+    {"id": "ops-monitoring", "title": "Operations monitoring migration", "outcome": "Connect the useful monitoring features of a reference project to real operating data.", "source_ref": "docs/examples/portfolio/ops-monitoring.md", "criteria": [
+      {"id": "projects", "text": "See project goals, acceptance criteria and actual work in the monitoring view."},
+      {"id": "coverage", "text": "Record whether each reference issue was applied, deferred or replaced, with its evidence."},
+      {"id": "acceptance", "text": "The user accepts the needed monitoring flow against a real operating scenario."}
+    ]},
+    {"id": "research-improvement", "title": "Research-driven self-improvement", "outcome": "Select evidence-backed improvements from failures, refusals and external research, then verify and apply them.", "source_ref": "docs/examples/portfolio/research-improvement.md", "criteria": [
+      {"id": "recurrence", "text": "Collect repeated failures of independent tasks into a research queue without duplicates."},
+      {"id": "research", "text": "Check each candidate against the single source of truth and primary sources, then fix a bounded improvement design."},
+      {"id": "verified-loop", "text": "Link one full round of implementation, independent verification and knowledge update by evidence."}
+    ]}
+  ]
+}

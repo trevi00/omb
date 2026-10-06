@@ -1,0 +1,88 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: lint (ruff)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install uv
+        run: |
+          python3 -m venv "$RUNNER_TEMP/uv-venv"
+          "$RUNNER_TEMP/uv-venv/bin/pip" install --quiet "uv==0.12.18"
+          echo "$RUNNER_TEMP/uv-venv/bin" >> "$GITHUB_PATH"
+      - name: Ruff
+        run: uv run --frozen ruff check .
+
+  unit:
+    name: unit (python ${{ matrix.python-version }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.14"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install uv
+        run: |
+          python3 -m venv "$RUNNER_TEMP/uv-venv"
+          "$RUNNER_TEMP/uv-venv/bin/pip" install --quiet "uv==0.12.18"
+          echo "$RUNNER_TEMP/uv-venv/bin" >> "$GITHUB_PATH"
+      - name: Unit tests (ci/excluded-tests.txt is excluded and summarised)
+        run: uv run --frozen --python ${{ matrix.python-version }} python ci/run_tests.py unit
+
+  integration:
+    name: integration (disposable PostgreSQL and Redis)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    services:
+      postgres:
+        image: pgvector/pgvector@sha256:cf134a767f474095eeba57e0117be8e568e011a63f33fbf252f14c9b760f8e6f
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - 5432/tcp
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+      redis:
+        image: redis@sha256:858f009f9709ce576febc734aa78b8f6d624b82571f9ddb6bda4377c833b3499
+        ports:
+          - 6379/tcp
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install uv
+        run: |
+          python3 -m venv "$RUNNER_TEMP/uv-venv"
+          "$RUNNER_TEMP/uv-venv/bin/pip" install --quiet "uv==0.12.18"
+          echo "$RUNNER_TEMP/uv-venv/bin" >> "$GITHUB_PATH"
+      - name: Integration-planned tests
+        run: uv run --frozen --python 3.12 python ci/run_tests.py integration

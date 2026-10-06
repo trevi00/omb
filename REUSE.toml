@@ -1,0 +1,104 @@
+version = 1
+SPDX-PackageName = "OMB"
+
+[[annotations]]
+path = "**"
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 OMB contributors"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/context/domain/skills/guidance.py"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/context/domain/skills/history.py"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/context/domain/skills/ranking.py"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/research/domain/threshold_proposals.py"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/research/domain/threshold_replay.py"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/resources/pipeline/overlays/dart.overlay.yaml"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/resources/pipeline/overlays/flutter.overlay.yaml"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/resources/pipeline/overlays/java.overlay.yaml"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/resources/pipeline/overlays/node.overlay.yaml"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/resources/pipeline/overlays/rust.overlay.yaml"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/resources/pipeline/provenance.json"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/resources/pipeline/stages-flutter.yaml"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/resources/pipeline/stages-rust.yaml"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/resources/pipeline/stages.core.yaml"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "src/codex_harness/resources/pipeline/stages.yaml"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "tests/ported/test_threshold_proposals.py"
+precedence = "override"
+SPDX-FileCopyrightText = "2026 the repository owner (adapted from a personal project owned by the repository owner; see NOTICE)"
+SPDX-License-Identifier = "MIT"

@@ -1,0 +1,22 @@
+# Test ids and modules the unit job does not run. One entry per line: <id>, a tab, the reason.
+# A module path is ignored; an id with :: is deselected; a reason starting with 'omitted' names a module that
+# is not in this tree at all. ci/run_tests.py reads this file.
+# The integration job runs the entries whose reason starts with 'integration'.
+tests/ported/test_check_binding.py::test_checks_bind_to_the_candidate_revision_of_the_workspace_they_ran_in	integration (job integration)
+tests/ported/test_gate_verdicts.py::test_human_statements_settle_only_through_the_provider_verification	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_gate_verdicts.py::test_iteration_records_verdicts_in_the_journal_and_advance_consumes_the_fold	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_gate_verdicts.py::test_runner_receipt_must_bind_the_verdict_it_supports	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_host_delivery_first_activation.py::test_the_committed_profile_digest_equals_the_incumbent_packaged_digest	integration (job integration)
+tests/ported/test_pipeline.py::test_all_bundled_source_bytes_match_pinned_manifest	excluded (variant y): asserts a pipeline asset count that includes an asset that is not published (operator ownership not established)
+tests/ported/test_sdd.py::test_claims_cannot_unlock_eight_stage_report	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_sdd.py::test_gwt_must_be_lists_never_one_line_strings	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_sdd.py::test_missing_spec_empty_coverage_and_unknown_authority_fields_rejected	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_sdd.py::test_observations_never_create_oracles_and_environment_changes_identity	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_sdd.py::test_replay_attributes_every_assertion_to_its_oracle_and_requirements_at_runtime	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_sdd.py::test_replay_export_is_idempotent_and_never_overwrites_a_different_draft	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_sdd.py::test_replay_export_refuses_unknown_target_financial_flows_and_missing_bindings	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_sdd.py::test_requirement_meaning_and_retirement_preserve_history	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_sdd.py::test_retired_ids_cannot_be_deleted_or_resurrected	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_sdd.py::test_review_embedded_content_cannot_escape_json_script	excluded (variant y): no public stand-in for the private design document
+tests/ported/test_seam_view.py::test_sdd_report_separates_stage_denominators	excluded (variant y): no public stand-in for the private design document
+tests/test_s1_storage_units.py::test_packaged_resources_are_the_source_bytes	D-E1-4 (test removed from the tree)

@@ -1,0 +1,101 @@
+THIRD_PARTY_NOTICES
+
+Original OMB project material is released under the MIT License (see LICENSE). Third-party material keeps its
+own license and is not relicensed by this project.
+
+## Dependencies
+
+Listed from uv.lock. This repository does not bundle these packages; the package manager installs them under
+their own licenses. The license is read from local package metadata at import time and is never guessed:
+UNKNOWN means no metadata was available and the entry needs review before a release. An entry marked
+`resolved` below was resolved from public package-index metadata (the source URL and the date follow it);
+the license texts are bundled from the locked source distributions at E3.
+
+- anyio 4.15.1 [runtime]: MIT
+- arrow 1.4.0 [unreachable]: OSI Approved / Apache Software License
+- attrs 26.1.0 [runtime]: MIT
+- certifi 2026.7.22 [runtime]: MPL-2.0
+- charset-normalizer 3.5.1 [runtime]: MIT
+- click 8.5.0 [runtime]: BSD-3-Clause
+- colorama 0.4.6 [runtime]: BSD License (classifier only)
+  - resolved: https://pypi.org/pypi/colorama/0.4.6/json, read 2026-10-04: classifier "License :: OSI Approved :: BSD License", license field empty
+- fastembed 0.8.0 [runtime]: Apache License
+- filelock 3.32.5 [runtime]: MIT
+- flatbuffers 25.12.19 [runtime]: Apache 2.0
+- fqdn 1.5.1 [unreachable]: MPL 2.0
+- fsspec 2026.7.0 [runtime]: BSD-3-Clause
+- h11 0.16.0 [runtime]: MIT
+- hf-xet 1.6.0 [runtime]: Apache-2.0
+- httpcore 1.0.9 [runtime]: BSD-3-Clause
+- httpx 0.28.1 [runtime]: BSD-3-Clause
+- huggingface-hub 1.30.0 [runtime]: Apache-2.0
+- idna 3.19 [runtime]: BSD-3-Clause
+- iniconfig 2.3.0 [dev]: MIT
+- isoduration 20.11.0 [unreachable]: OSI Approved / ISC License (ISCL)
+- jsonpointer 3.1.1 [unreachable]: Modified BSD License
+- jsonschema 4.26.0 [runtime]: MIT
+- jsonschema-specifications 2025.9.1 [runtime]: MIT
+- loguru 0.7.3 [runtime]: OSI Approved / MIT License
+- mmh3 5.3.0 [runtime]: OSI Approved / MIT License
+- numpy 2.5.3 [runtime]: BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0
+- onnxruntime 1.29.0 [runtime]: MIT License
+- packaging 26.3 [runtime]: Apache-2.0 OR BSD-2-Clause
+- pillow 12.3.0 [runtime]: MIT-CMU
+- pluggy 1.6.0 [dev]: MIT
+- protobuf 7.36.1 [runtime]: 3-Clause BSD License
+- psycopg 3.3.5 [runtime]: LGPL-3.0-only
+- psycopg-binary 3.3.5 [unreachable]: LGPL-3.0-only
+- py-rust-stemmers 0.1.8 [runtime]: MIT (stated in the package description only; confirm the LICENSE file at E3)
+  - resolved: https://pypi.org/pypi/py-rust-stemmers/0.1.8/json, read 2026-10-04: no license field or classifier, only the description says MIT; confirm the LICENSE file at E3
+- pygments 2.21.0 [dev]: BSD-2-Clause
+- pytest 9.1.1 [dev]: MIT
+- python-dateutil 2.9.0.post0 [unreachable]: Dual License
+- pyyaml 6.0.3 [runtime]: MIT
+- redis 6.4.0 [runtime]: MIT
+- referencing 0.37.0 [runtime]: MIT
+- requests 2.34.2 [runtime]: Apache-2.0
+- rfc3339-validator 0.1.4 [unreachable]: MIT license
+- rfc3987 1.3.8 [unreachable]: GNU GPLv3+
+- rpds-py 2026.6.3 [runtime]: MIT
+- ruff 0.16.6 [dev]: MIT
+- six 1.17.0 [unreachable]: MIT
+- tokenizers 0.23.2 [runtime]: OSI Approved / Apache Software License
+- tqdm 4.70.0 [runtime]: MPL-2.0 AND MIT
+- tree-sitter 0.25.2 [runtime]: OSI Approved / MIT License
+- tree-sitter-python 0.25.0 [runtime]: MIT
+- typing-extensions 4.16.0 [runtime]: PSF-2.0
+- tzdata 2026.3 [runtime]: Apache-2.0
+- uri-template 1.3.0 [unreachable]: MIT License
+- urllib3 2.7.0 [runtime]: MIT
+- webcolors 25.10.0 [unreachable]: BSD-3-Clause
+- win32-setctime 1.2.0 [runtime]: MIT
+  - resolved: https://pypi.org/pypi/win32-setctime/1.2.0/json, read 2026-10-04: license field "MIT license", classifier MIT
+
+Packages listed: 56; resolved from public package-index metadata: 3; with license UNKNOWN: 0.
+
+## Bundled third-party files
+
+None. The reviewed export contains no file under a third-party license.
+
+## Operator-owned material (provenance)
+
+The files below are adapted from a personal project owned by the repository owner. They were not published
+under a license before. The owner licenses them under the MIT License of this repository (Copyright (c)
+2026 the repository owner); see NOTICE. REUSE.toml records the license of each file.
+
+- src/codex_harness/context/domain/skills/guidance.py
+- src/codex_harness/context/domain/skills/history.py
+- src/codex_harness/context/domain/skills/ranking.py
+- src/codex_harness/research/domain/threshold_proposals.py
+- src/codex_harness/research/domain/threshold_replay.py
+- src/codex_harness/resources/pipeline/overlays/dart.overlay.yaml
+- src/codex_harness/resources/pipeline/overlays/flutter.overlay.yaml
+- src/codex_harness/resources/pipeline/overlays/java.overlay.yaml
+- src/codex_harness/resources/pipeline/overlays/node.overlay.yaml
+- src/codex_harness/resources/pipeline/overlays/rust.overlay.yaml
+- src/codex_harness/resources/pipeline/provenance.json
+- src/codex_harness/resources/pipeline/stages-flutter.yaml
+- src/codex_harness/resources/pipeline/stages-rust.yaml
+- src/codex_harness/resources/pipeline/stages.core.yaml
+- src/codex_harness/resources/pipeline/stages.yaml
+- tests/ported/test_threshold_proposals.py

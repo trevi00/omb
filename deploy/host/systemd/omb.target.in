@@ -1,0 +1,9 @@
+# omb.target groups the Zeus host services so `systemctl stop omb.target` stops
+# them together (PartOf=). Enabling it is an owner action after the migration gates.
+[Unit]
+Description=Zeus host services
+Documentation=file://@ZEUS_ROOT@/deploy/host/README.md
+Wants=@NAMESPACE@-monitor-collect.service @NAMESPACE@-monitor-web.service @NAMESPACE@-fleet.service
+
+[Install]
+WantedBy=multi-user.target

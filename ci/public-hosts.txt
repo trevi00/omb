@@ -1,0 +1,21 @@
+# The https hosts tools/check_public_tree.py accepts in URLs (URL_HOSTS), one reviewed entry per line:
+# <host> TAB <reason>. A private host is never listed; the checker's self-test checks that this file and
+# URL_HOSTS list the same hosts.
+api.github.com	the forge API host named by the ticket intake adapters and their docs
+chatgpt.com	the provider's public usage page named in a recorded usage-limit error text
+docs.github.com	the forge's public documentation
+example.com	reserved example host (RFC 2606)
+example.invalid	reserved placeholder host for fixtures (RFC 2606)
+example.net	reserved example host (RFC 2606)
+example.org	reserved example host (RFC 2606)
+files.pythonhosted.org	package file host named by the dependency documentation
+github.com	the forge host the code, its tests and docs name
+gitlab.com	a second public forge host named by the remote-parsing code and tests
+invalid.example	reserved placeholder host for fixtures (RFC 2606)
+json-schema.org	schema dialect identifier host named by the output validation
+news.hada.io	a public news feed the research collector reads (a research source)
+pypi.org	package index host named by the dependency documentation
+tailwindcss.com	public documentation link
+www.github.com	forge host spelling the remote parser accepts and tests
+www.psycopg.org	public documentation link
+www.w3.org	standards host named by XML namespace identifiers and documentation

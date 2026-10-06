@@ -1,0 +1,136 @@
+"""Coordination ports: the buckets coordination owns (single writer).
+
+Layer: ports
+Context: coordination
+Owns: OWNED_BUCKETS of the coordination context
+Does not own: the implementations of the Protocols it declares (TaskRunner, PortfolioLineage, ...: other contexts and
+    the coordination adapters)
+Entry points: OWNED_BUCKETS
+Contracts: INV-EXECUTION-IDENTITY-001
+
+(lead decision Option A) declares the buckets its moved-ahead owner operations write; adds the rest.
+"""
+
+from __future__ import annotations
+
+from typing import Protocol
+
+OWNED_BUCKETS = ("tasks", "decisions_pending", "outbox", "events", "execution_fences", "execution_notices",
+                 "execution_notice_errors", "execution_time_events", "workflow_inbox", "execution_rejections",
+                 "execution_failures",
+                 "breakers", "breaker_events", "breaker_notices", "breaker_policies", "sessions",
+                 # Fleet split (§F): the four Fleet objects are this context's writers.
+                 "fleet_registry", "fleet_control", "fleet_jobs", "fleet_budget_grants", "fleet_delivery",
+                 "fleet_units", "fleet_recovery_receipts", "fleet_relocations", "fleet_host_migrations",
+                 # MessageHandler and operation finalization (§M); the ledger owner is coordination.
+                 "rebase_requests", "research_topics", "research_discoveries", "operation_dispositions",
+                 "operation_message_dispositions",
+                 # Outbox relay (§O)
+                 "outbox_attempts", "outbox_control", "outbox_delivery", "outbox_quarantine", "outbox_routes",
+                 # LocalCycle and Operation (§L, §Op).
+                 "local_cycles", "operations",
+                 # Execution recovery remainder (receipts of prepare/apply).
+                 "execution_recoveries",
+                 # Part: the persisted research-admission disposition (declared addition).
+                 "research_admissions",
+                 # Continuation split; `continuation_bindings` is the lane store's.
+                 "continuation_policies", "continuation_intents", "continuation_progress", "continuation_bindings",
+                 "continuation_research_receipts", "continuation_research_supplements",
+                 "continuation_capacity_grants", "continuation_requalifications",
+                 # OwnerActions split.
+                 "owner_action_policies", "owner_actions", "owner_action_migrations",
+                 "continuation_effective_bindings",
+                 # The autonomous cycle is coordination's use case.
+                 "autonomous_runs",
+                 # The approved-backlog admission into the Fleet is coordination's use case.
+                 "fleet_backlog_plans", "fleet_backlog_intents")
+
+
+class TaskRunner(Protocol):
+    """The executor entry points a LocalCycle/Operation drives (§P): execution.RunTask + review.ReviewDecisions."""
+
+    def execute_one(self, agent: str, expected: dict | None = None) -> dict | None: ...
+
+    def decide_one(self, agent: str, expected: dict | None = None) -> dict | None: ...
+
+
+class DesignGate(Protocol):
+    """Research's design gate (INV-DGE-001; implemented): joins the claim unit, raises DgeRefused."""
+
+    def check(self, tx, design: dict, *, repository, base_revision: str, plan: dict, now: str) -> dict: ...
+
+
+class EvidenceRecords(Protocol):
+    """Evidence's read of one all_checked inspection bound to an execution (INV-EVIDENCE-001)."""
+
+    def require_all_checked(self, tx, inspection_id: str, *, policy_hash=None, binding=None) -> dict: ...
+
+
+class DebateSessions(Protocol):
+    """Research's debate sessions (research.application.dge.DebateSessions; INV-DGE-001), built per run over the run's store and
+    clock: the autonomous cycle registers the frozen packet, submits each role's event and reads the status."""
+
+    def register(self, packet: dict, repository: str, sources: list, *, origin: str = "operator_submitted", owner: str | None = None,
+                 binding: dict | None = None) -> dict: ...
+
+    def submit(self, session_id: str, document: dict, *, owner: str | None = None, binding: dict | None = None) -> dict: ...
+
+    def status(self, session_id: str) -> dict: ...
+
+
+class KnowledgePromotion(Protocol):
+    """Knowledge's promotion (the module knowledge.application.promotion satisfies this structurally; INV-AUTONOMOUS-001): write the
+    verified graph and the receipt in the CALLER's transaction."""
+
+    def promote(self, tx, run_id: str, graph: dict, evidence: dict, clock=None) -> dict: ...
+
+
+class ThresholdReviewRecovery(Protocol):
+    """Research's threshold-review side of a decision recovery (implemented; it owns threshold_review_requests)."""
+
+    def row(self, tx, row_id: str) -> dict: ...
+
+    def restore(self, tx, request: dict) -> None: ...
+
+
+class PortfolioLineage(Protocol):
+    """Intake's lineage owner operation (moved ahead: intake.application.portfolio_lineage): a successor inherits
+    exactly its origin's project binding inside the CALLER's transaction."""
+
+    def inherit(self, tx, job_id: str, origin_job_id: str, lineage: dict, now: str) -> dict | None: ...
+
+
+class ConductorLauncher(Protocol):
+    """The guarded conductor launch (coordination.adapters.conductor_launch.ConductorProcesses)."""
+
+    def start(self, lane_id: str, job: dict, launch: str, token: str) -> dict: ...
+
+    def poll(self, lane_id: str, launch: str) -> dict: ...
+
+
+class ResearchEvidence(Protocol):
+    """The trusted research evidence reader: `verify(ref)` checks one content-addressed reference's actual bytes."""
+
+    def verify(self, reference) -> None: ...
+
+
+class ResearchPrograms(Protocol):
+    """Research's program resume (moved ahead: research.application.program_state.ProgramState), in its own unit."""
+
+    def resume(self, program_id: str) -> dict: ...
+
+
+class DeskQueue(Protocol):
+    """Intake's front-desk queue (intake.application.frontdesk.FrontDesk), exactly the methods coordination's `DeskRunner` calls on its
+    `desk` (AST-derived): the claim, the terminal write, the accounting receipt and the startup reads."""
+
+    def claim_next(self) -> dict | None: ...
+
+    def dispatching(self) -> list[dict]: ...
+
+    def finalize(self, request_id: str, owner_token: str, status: str, reason_code=None, answer=None, task_id=None,
+                 execution_ref=None) -> dict: ...
+
+    def record_receipt(self, row: dict, task_id, slots: list[dict], published: bool) -> dict: ...
+
+    def receipt(self, request_id: str) -> dict | None: ...
